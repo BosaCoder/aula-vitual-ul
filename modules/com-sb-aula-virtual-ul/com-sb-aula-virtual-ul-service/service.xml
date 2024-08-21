@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds"
+	package-path="com.sb.aula.virtual.ul">
+	<namespace>AulaVirtual</namespace>
+
+	<entity local-service="true" name="Tbl_Ul_Calificacion"
+		remote-service="true" uuid="true">
+		<column name="idCalificacion" primary="true" type="long" />
+		<column name="puntajeCalificacion" type="String" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idCalificacion" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="PuntajeCalificacion" return-type="Collection">
+			<finder-column name="puntajeCalificacion" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_Profesor"
+		remote-service="true" uuid="true">
+		<column name="idProfesor" primary="true" type="long" />
+		<column name="nombreCompletoProfesor" type="String" />
+		<column name="correoProfesor" type="String" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idProfesor" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="NombreCompletoProfesor" return-type="Collection">
+			<finder-column name="nombreCompletoProfesor" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_Curso" remote-service="true"
+		uuid="true">
+		<column name="idCuso" primary="true" type="long" />
+		<column name="nombreCurso" type="String" />
+		<column name="fechaInicioCurso" type="Date" />
+		<column name="fechaFinCurso" type="Date" />
+		<!-- Foreign keys (relations) -->
+		<column name="Tbl_Ul_Calificacion_id" type="long" />
+		<column name="Tbl_Ul_Profesor_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idCuso" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="NombreCurso" return-type="Collection">
+			<finder-column name="nombreCurso" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_PeriodoAcademico"
+		remote-service="true" uuid="true">
+		<column name="idPeriodo" primary="true" type="long" />
+		<column name="tituloPeriodo" type="String" />
+		<column name="fechaInicioPeriodo" type="Date" />
+		<column name="fechaFinPeriodo" type="Date" />
+		<column name="porcentajePeriodo" type="String" />
+		<!-- Foreign keys (relations) -->
+		<column name="Tbl_Ul_Curso_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idPeriodo" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="TituloPeriodo" return-type="Collection">
+			<finder-column name="tituloPeriodo" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_Actividad"
+		remote-service="true" uuid="true">
+		<column name="idActividad" primary="true" type="long" />
+		<column name="tituloActividad" type="String" />
+		<column name="tipoActividad" type="String" />
+		<column name="descripcionActividad" type="Text" />
+		<column name="estadoEntregaActividad" type="String" />
+		<column name="fechaCreacionActividad" type="Date" />
+		<column name="fechaCierreActividad" type="Date" />
+		<column name="porcentajeActividad" type="String" />
+		<!-- Foreign keys (relations) -->
+		<column name="Tbl_Ul_Calificacion_id" type="long" />
+		<column name="Tbl_Ul_PeriodoAcademico_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idActividad" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="TituloActividad" return-type="Collection">
+			<finder-column name="tituloActividad" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_Estudiante"
+		remote-service="true" uuid="true">
+		<column name="idEstudiante" primary="true" type="long" />
+		<column name="nombreCompletoEstudiante" type="String" />
+		<column name="correoEstudiante" type="String" />
+		<column name="profesionEstudiante" type="String" />
+		<column name="sedeEstudiante" type="String" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idEstudiante" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="NombreCompletoEstudiante" return-type="Collection">
+			<finder-column name="nombreCompletoEstudiante" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_PreguntasEvaulacion"
+		remote-service="true" uuid="true">
+		<column name="idPreguntas" primary="true" type="long" />
+		<column name="problemaPreguntas" type="String" />
+		<column name="opcionesPreguntas" type="String" />
+		<column name="puntajePreguntas" type="String" />
+		<column name="intentosPermitosPreguntas" type="String" />
+		<column name="limiteTiempoPreguntas" type="String" />
+		<!-- Foreign keys (relations) -->
+		<column name="Tbl_Ul_Actividad_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idPreguntas" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="ProblemaPreguntas" return-type="Collection">
+			<finder-column name="problemaPreguntas" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_MaterialEstudio"
+		remote-service="true" uuid="true">
+		<column name="idMaterial" primary="true" type="long" />
+		<column name="tituloMaterial" type="String" />
+		<column name="fechaCreacionMaterial" type="Date" />
+		<column name="urlArchivoMaterial" type="String" />
+		<column name="descripcionMaterial" type="String" />
+		<!-- Foreign keys (relations) -->
+		<column name="Tbl_Ul_PeriodoAcademico_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idMaterial" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="TituloMaterial" return-type="Collection">
+			<finder-column name="tituloMaterial" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_RespuestasEvaulacion"
+		remote-service="true" uuid="true">
+		<column name="idRespuestas" primary="true" type="long" />
+		<column name="problemaRespuestas" type="String" />
+		<column name="opcioneSeleccionadasRespuestas" type="String" />
+		<column name="puntajeRespuestas" type="String" />
+		<!-- Foreign keys (relations) -->
+		<column name="Tbl_Ul_Estudiante_id" type="long" />
+		<column name="Tbl_Ul_PreguntasEvaulacion_id" type="long" />
+		<column name="Tbl_Ul_Calificacion_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idRespuestas" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="ProblemaRespuestas" return-type="Collection">
+			<finder-column name="problemaRespuestas" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_Estudiante_Curso"
+		remote-service="true" uuid="true">
+		<!-- Composite key in Service Builder requires manual handling; assume 
+			one-to-many relation -->
+		<column name="Tbl_Ul_Curso_id" primary="true" type="long" />
+		<column name="Tbl_Ul_Estudiante_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="Tbl_Ul_Curso_id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="TBl_Ul_Estudiante_id" return-type="Collection">
+			<finder-column name="Tbl_Ul_Estudiante_id" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_Administrador"
+		remote-service="true" uuid="true">
+		<column name="idAdmin" primary="true" type="long" />
+		<column name="nombreCompletoAdmin" type="String" />
+		<column name="CorreoAdmin" type="String" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="idAdmin" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="NombreCompletoAdmin" return-type="Collection">
+			<finder-column name="nombreCompletoAdmin" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+	<entity local-service="true" name="Tbl_Ul_AdministradorCurso"
+		remote-service="true" uuid="true">
+		<!-- Composite key in Service Builder requires manual handling; assume 
+			one-to-many relation -->
+		<column name="Tbl_Ul_Administrador_id" primary="true"
+			type="long" />
+		<column name="Tbl_Ul_Curso_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="Tbl_Ul_Administrador_id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="TBl_Ul_Curso_id" return-type="Collection">
+			<finder-column name="Tbl_Ul_Curso_id" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+
+</service-builder>

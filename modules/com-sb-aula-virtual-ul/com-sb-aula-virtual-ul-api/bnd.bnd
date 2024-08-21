@@ -1,0 +1,10 @@
+Bundle-Name: com-sb-aula-virtual-ul-api
+Bundle-SymbolicName: com.sb.aula.virtual.ul.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.sb.aula.virtual.ul.exception,\
+	com.sb.aula.virtual.ul.model,\
+	com.sb.aula.virtual.ul.service,\
+	com.sb.aula.virtual.ul.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../com-sb-aula-virtual-ul-service/service.xml

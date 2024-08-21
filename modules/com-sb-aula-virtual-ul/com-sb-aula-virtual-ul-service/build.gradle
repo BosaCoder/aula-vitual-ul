@@ -1,0 +1,19 @@
+dependencies {
+	compile project(":modules:com-sb-aula-virtual-ul:com-sb-aula-virtual-ul-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../com-sb-aula-virtual-ul-api/src/main/java"
+}
+
+group = "com.sb.aula.virtual.ul"
+
+tasks.withType(JavaCompile) {
+
+	// Generated classes using Jodd library are unable to be read when compiled against JDK 11
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
