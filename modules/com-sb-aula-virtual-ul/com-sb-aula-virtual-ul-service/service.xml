@@ -169,7 +169,7 @@
 		<column name="idActividad" primary="true" type="long" />
 		<column name="tituloActividad" type="String" />
 		<column name="tipoActividad" type="String" />
-		<column name="descripcionActividad" type="Text" />
+		<column name="descripcionActividad" type="String" />
 		<column name="estadoEntregaActividad" type="String" />
 		<column name="fechaCreacionActividad" type="Date" />
 		<column name="fechaCierreActividad" type="Date" />
