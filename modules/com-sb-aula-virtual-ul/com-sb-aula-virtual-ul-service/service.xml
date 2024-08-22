@@ -5,10 +5,10 @@
 	package-path="com.sb.aula.virtual.ul">
 	<namespace>AulaVirtual</namespace>
 
-	<entity local-service="true" name="Tbl_Ul_Calificacion"
+	<entity local-service="true" name="T_Ul_Calificacion"
 		remote-service="true" uuid="true">
 		<column name="idCalificacion" primary="true" type="long" />
-		<column name="puntajeCalificacion" type="String" />
+		<column name="puntCalificacion" type="String" />
 
 		<!-- Group instance -->
 
@@ -30,8 +30,8 @@
 
 		<!-- Finder methods -->
 
-		<finder name="PuntajeCalificacion" return-type="Collection">
-			<finder-column name="puntajeCalificacion" />
+		<finder name="puntCalificacion" return-type="Collection">
+			<finder-column name="puntCalificacion" />
 		</finder>
 
 		<!-- References -->
@@ -42,10 +42,10 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_Profesor"
+	<entity local-service="true" name="T_Ul_Profesor"
 		remote-service="true" uuid="true">
 		<column name="idProfesor" primary="true" type="long" />
-		<column name="nombreCompletoProfesor" type="String" />
+		<column name="nombreProfesor" type="String" />
 		<column name="correoProfesor" type="String" />
 
 		<!-- Group instance -->
@@ -68,8 +68,8 @@
 
 		<!-- Finder methods -->
 
-		<finder name="NombreCompletoProfesor" return-type="Collection">
-			<finder-column name="nombreCompletoProfesor" />
+		<finder name="nombreProfesor" return-type="Collection">
+			<finder-column name="nombreProfesor" />
 		</finder>
 
 		<!-- References -->
@@ -80,15 +80,15 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_Curso" remote-service="true"
+	<entity local-service="true" name="T_Ul_Curso" remote-service="true"
 		uuid="true">
 		<column name="idCuso" primary="true" type="long" />
 		<column name="nombreCurso" type="String" />
-		<column name="fechaInicioCurso" type="Date" />
-		<column name="fechaFinCurso" type="Date" />
+		<column name="fInicioCurso" type="Date" />
+		<column name="fFinCurso" type="Date" />
 		<!-- Foreign keys (relations) -->
-		<column name="Tbl_Ul_Calificacion_id" type="long" />
-		<column name="Tbl_Ul_Profesor_id" type="long" />
+		<column name="T_Ul_Califi_id" type="long" />
+		<column name="T_Ul_Profesor_id" type="long" />
 
 		<!-- Group instance -->
 
@@ -122,15 +122,15 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_PeriodoAcademico"
+	<entity local-service="true" name="T_Ul_PAcademico"
 		remote-service="true" uuid="true">
 		<column name="idPeriodo" primary="true" type="long" />
 		<column name="tituloPeriodo" type="String" />
-		<column name="fechaInicioPeriodo" type="Date" />
-		<column name="fechaFinPeriodo" type="Date" />
-		<column name="porcentajePeriodo" type="String" />
+		<column name="fInicioPeriodo" type="Date" />
+		<column name="fFinPeriodo" type="Date" />
+		<column name="porcPeriodo" type="String" />
 		<!-- Foreign keys (relations) -->
-		<column name="Tbl_Ul_Curso_id" type="long" />
+		<column name="T_Ul_Curso_id" type="long" />
 
 		<!-- Group instance -->
 
@@ -164,19 +164,19 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_Actividad"
+	<entity local-service="true" name="T_Ul_Actividad"
 		remote-service="true" uuid="true">
 		<column name="idActividad" primary="true" type="long" />
 		<column name="tituloActividad" type="String" />
 		<column name="tipoActividad" type="String" />
-		<column name="descripcionActividad" type="String" />
-		<column name="estadoEntregaActividad" type="String" />
-		<column name="fechaCreacionActividad" type="Date" />
-		<column name="fechaCierreActividad" type="Date" />
-		<column name="porcentajeActividad" type="String" />
+		<column name="descriActividad" type="String" />
+		<column name="estadoEntrActividad" type="String" />
+		<column name="fCreacActividad" type="Date" />
+		<column name="fCierrActividad" type="Date" />
+		<column name="porcActividad" type="String" />
 		<!-- Foreign keys (relations) -->
-		<column name="Tbl_Ul_Calificacion_id" type="long" />
-		<column name="Tbl_Ul_PeriodoAcademico_id" type="long" />
+		<column name="T_Ul_Califi_id" type="long" />
+		<column name="T_Ul_PAcademico_id" type="long" />
 
 		<!-- Group instance -->
 
@@ -210,12 +210,12 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_Estudiante"
+	<entity local-service="true" name="T_Ul_Estudiante"
 		remote-service="true" uuid="true">
 		<column name="idEstudiante" primary="true" type="long" />
-		<column name="nombreCompletoEstudiante" type="String" />
+		<column name="nombreEstudiante" type="String" />
 		<column name="correoEstudiante" type="String" />
-		<column name="profesionEstudiante" type="String" />
+		<column name="profesEstudiante" type="String" />
 		<column name="sedeEstudiante" type="String" />
 
 		<!-- Group instance -->
@@ -238,8 +238,8 @@
 
 		<!-- Finder methods -->
 
-		<finder name="NombreCompletoEstudiante" return-type="Collection">
-			<finder-column name="nombreCompletoEstudiante" />
+		<finder name="nombreEstudiante" return-type="Collection">
+			<finder-column name="nombreEstudiante" />
 		</finder>
 
 		<!-- References -->
@@ -250,16 +250,16 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_PreguntasEvaulacion"
+	<entity local-service="true" name="T_Ul_PrgEvaluacion"
 		remote-service="true" uuid="true">
 		<column name="idPreguntas" primary="true" type="long" />
-		<column name="problemaPreguntas" type="String" />
-		<column name="opcionesPreguntas" type="String" />
+		<column name="problPreguntas" type="String" />
+		<column name="opcPreguntas" type="String" />
 		<column name="puntajePreguntas" type="String" />
-		<column name="intentosPermitosPreguntas" type="String" />
-		<column name="limiteTiempoPreguntas" type="String" />
+		<column name="intentoPreguntas" type="String" />
+		<column name="limiteTPreguntas" type="String" />
 		<!-- Foreign keys (relations) -->
-		<column name="Tbl_Ul_Actividad_id" type="long" />
+		<column name="T_Ul_Actividad_id" type="long" />
 
 		<!-- Group instance -->
 
@@ -281,8 +281,8 @@
 
 		<!-- Finder methods -->
 
-		<finder name="ProblemaPreguntas" return-type="Collection">
-			<finder-column name="problemaPreguntas" />
+		<finder name="problPreguntas" return-type="Collection">
+			<finder-column name="problPreguntas" />
 		</finder>
 
 		<!-- References -->
@@ -293,15 +293,15 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_MaterialEstudio"
+	<entity local-service="true" name="T_Ul_MaterialEstud"
 		remote-service="true" uuid="true">
 		<column name="idMaterial" primary="true" type="long" />
 		<column name="tituloMaterial" type="String" />
-		<column name="fechaCreacionMaterial" type="Date" />
-		<column name="urlArchivoMaterial" type="String" />
-		<column name="descripcionMaterial" type="String" />
+		<column name="fCreacionMaterial" type="Date" />
+		<column name="urlArchMaterial" type="String" />
+		<column name="descripMaterial" type="String" />
 		<!-- Foreign keys (relations) -->
-		<column name="Tbl_Ul_PeriodoAcademico_id" type="long" />
+		<column name="T_Ul_PAcademico_id" type="long" />
 
 		<!-- Group instance -->
 
@@ -335,16 +335,16 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_RespuestasEvaulacion"
+	<entity local-service="true" name="T_Ul_ResEvaluacion"
 		remote-service="true" uuid="true">
 		<column name="idRespuestas" primary="true" type="long" />
-		<column name="problemaRespuestas" type="String" />
-		<column name="opcioneSeleccionadasRespuestas" type="String" />
+		<column name="problRespuestas" type="String" />
+		<column name="opcionRespuestas" type="String" />
 		<column name="puntajeRespuestas" type="String" />
 		<!-- Foreign keys (relations) -->
-		<column name="Tbl_Ul_Estudiante_id" type="long" />
-		<column name="Tbl_Ul_PreguntasEvaulacion_id" type="long" />
-		<column name="Tbl_Ul_Calificacion_id" type="long" />
+		<column name="T_Ul_Estudiante_id" type="long" />
+		<column name="T_Ul_PrgEvaluacion_id" type="long" />
+		<column name="T_Ul_Califi_id" type="long" />
 
 		<!-- Group instance -->
 
@@ -366,8 +366,8 @@
 
 		<!-- Finder methods -->
 
-		<finder name="ProblemaRespuestas" return-type="Collection">
-			<finder-column name="problemaRespuestas" />
+		<finder name="problRespuestas" return-type="Collection">
+			<finder-column name="problRespuestas" />
 		</finder>
 
 		<!-- References -->
@@ -378,12 +378,12 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_Estudiante_Curso"
+	<entity local-service="true" name="T_Ul_Estud_Curso"
 		remote-service="true" uuid="true">
 		<!-- Composite key in Service Builder requires manual handling; assume 
 			one-to-many relation -->
-		<column name="Tbl_Ul_Curso_id" primary="true" type="long" />
-		<column name="Tbl_Ul_Estudiante_id" primary="true" type="long" />
+		<column name="T_Ul_Curso_id" primary="true" type="long" />
+		<column name="T_Ul_Estudiante_id" primary="true" type="long" />
 
 		<!-- Group instance -->
 
@@ -400,13 +400,13 @@
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="Tbl_Ul_Curso_id" />
+			<order-column name="T_Ul_Curso_id" />
 		</order>
 
 		<!-- Finder methods -->
 
-		<finder name="TBl_Ul_Estudiante_id" return-type="Collection">
-			<finder-column name="Tbl_Ul_Estudiante_id" />
+		<finder name="T_Ul_Estudiante_id" return-type="Collection">
+			<finder-column name="T_Ul_Estudiante_id" />
 		</finder>
 
 		<!-- References -->
@@ -417,10 +417,10 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_Administrador"
+	<entity local-service="true" name="T_Ul_Administrador"
 		remote-service="true" uuid="true">
 		<column name="idAdmin" primary="true" type="long" />
-		<column name="nombreCompletoAdmin" type="String" />
+		<column name="nombreAdmin" type="String" />
 		<column name="CorreoAdmin" type="String" />
 
 		<!-- Group instance -->
@@ -443,8 +443,8 @@
 
 		<!-- Finder methods -->
 
-		<finder name="NombreCompletoAdmin" return-type="Collection">
-			<finder-column name="nombreCompletoAdmin" />
+		<finder name="nombreAdmin" return-type="Collection">
+			<finder-column name="nombreAdmin" />
 		</finder>
 
 		<!-- References -->
@@ -455,13 +455,13 @@
 			package-path="com.liferay.portlet.asset" />
 	</entity>
 
-	<entity local-service="true" name="Tbl_Ul_AdministradorCurso"
+	<entity local-service="true" name="T_Ul_AdminCurso"
 		remote-service="true" uuid="true">
 		<!-- Composite key in Service Builder requires manual handling; assume 
 			one-to-many relation -->
-		<column name="Tbl_Ul_Administrador_id" primary="true"
+		<column name="T_Ul_Admin_id" primary="true"
 			type="long" />
-		<column name="Tbl_Ul_Curso_id" primary="true" type="long" />
+		<column name="T_Ul_Curso_id" primary="true" type="long" />
 
 		<!-- Group instance -->
 
@@ -478,13 +478,13 @@
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="Tbl_Ul_Administrador_id" />
+			<order-column name="T_Ul_Admin_id" />
 		</order>
 
 		<!-- Finder methods -->
 
-		<finder name="TBl_Ul_Curso_id" return-type="Collection">
-			<finder-column name="Tbl_Ul_Curso_id" />
+		<finder name="T_Ul_Curso_id" return-type="Collection">
+			<finder-column name="T_Ul_Curso_id" />
 		</finder>
 
 		<!-- References -->
